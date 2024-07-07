@@ -1,30 +1,40 @@
+import java.time.LocalDate;
+
+import br.com.dio.desafio.Professor;
 import br.com.dio.desafio.dominio.Bootcamp;
 import br.com.dio.desafio.dominio.Curso;
 import br.com.dio.desafio.dominio.Dev;
 import br.com.dio.desafio.dominio.Mentoria;
 
-import java.time.LocalDate;
+
 
 public class Main {
     public static void main(String[] args) {
+        Professor professor1 = new Professor();
+        professor1.setNome("Dr. Smith");
+        professor1.setExperiencia(15);
+
+        Professor professor2 = new Professor();
+        professor2.setNome("Dr. Johnson");
+        professor2.setExperiencia(10);
+
         Curso curso1 = new Curso();
-        curso1.setTitulo("curso java");
-        curso1.setDescricao("descrição curso java");
+        curso1.setTitulo("Curso Java");
+        curso1.setDescricao("Descrição Curso Java");
         curso1.setCargaHoraria(8);
+        curso1.setProfessor(professor1);
 
         Curso curso2 = new Curso();
-        curso2.setTitulo("curso js");
-        curso2.setDescricao("descrição curso js");
+        curso2.setTitulo("Curso JavaScript");
+        curso2.setDescricao("Descrição Curso JavaScript");
         curso2.setCargaHoraria(4);
+        curso2.setProfessor(professor2);
 
         Mentoria mentoria = new Mentoria();
-        mentoria.setTitulo("mentoria de java");
-        mentoria.setDescricao("descrição mentoria java");
+        mentoria.setTitulo("Mentoria Java");
+        mentoria.setDescricao("Descrição Mentoria Java");
         mentoria.setData(LocalDate.now());
-
-        /*System.out.println(curso1);
-        System.out.println(curso2);
-        System.out.println(mentoria);*/
+        mentoria.setProfessor(professor1);
 
         Bootcamp bootcamp = new Bootcamp();
         bootcamp.setNome("Bootcamp Java Developer");
@@ -33,31 +43,29 @@ public class Main {
         bootcamp.getConteudos().add(curso2);
         bootcamp.getConteudos().add(mentoria);
 
-        Dev devCamila = new Dev();
-        devCamila.setNome("Camila");
-        devCamila.inscreverBootcamp(bootcamp);
-        System.out.println("Conteúdos Inscritos Camila:" + devCamila.getConteudosInscritos());
-        devCamila.progredir();
-        devCamila.progredir();
+        Dev dev1 = new Dev();
+        dev1.setNome("Camila");
+        dev1.inscreverBootcamp(bootcamp);
+        System.out.println("Conteúdos Inscritos Camila:" + dev1.getConteudosInscritos());
+        dev1.progredir();
+        dev1.progredir();
         System.out.println("-");
-        System.out.println("Conteúdos Inscritos Camila:" + devCamila.getConteudosInscritos());
-        System.out.println("Conteúdos Concluídos Camila:" + devCamila.getConteudosConcluidos());
-        System.out.println("XP:" + devCamila.calcularTotalXp());
+        System.out.println("Conteúdos Inscritos Camila:" + dev1.getConteudosInscritos());
+        System.out.println("Conteúdos Concluídos Camila:" + dev1.getConteudosConcluidos());
+        System.out.println("XP:" + dev1.calcularTotalXp());
 
         System.out.println("-------");
 
-        Dev devJoao = new Dev();
-        devJoao.setNome("Joao");
-        devJoao.inscreverBootcamp(bootcamp);
-        System.out.println("Conteúdos Inscritos João:" + devJoao.getConteudosInscritos());
-        devJoao.progredir();
-        devJoao.progredir();
-        devJoao.progredir();
+        Dev dev2 = new Dev();
+        dev2.setNome("João");
+        dev2.inscreverBootcamp(bootcamp);
+        System.out.println("Conteúdos Inscritos João:" + dev2.getConteudosInscritos());
+        dev2.progredir();
+        dev2.progredir();
+        dev2.progredir();
         System.out.println("-");
-        System.out.println("Conteúdos Inscritos João:" + devJoao.getConteudosInscritos());
-        System.out.println("Conteúdos Concluidos João:" + devJoao.getConteudosConcluidos());
-        System.out.println("XP:" + devJoao.calcularTotalXp());
-
+        System.out.println("Conteúdos Inscritos João:" + dev2.getConteudosInscritos());
+        System.out.println("Conteúdos Concluídos João:" + dev2.getConteudosConcluidos());
+        System.out.println("XP:" + dev2.calcularTotalXp());
     }
-
 }
